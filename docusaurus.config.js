@@ -29,9 +29,17 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'zh-Hans'],
+    localeConfigs: {
+      en: {
+        htmlLang: 'en-GB',
+      },
+      // 如果你不需要覆盖默认值，你可以忽略这个语言（比如 zh-Hans）
+      fa: {
+        direction: 'rtl',
+      },
+    },
   },
-
   presets: [
     [
       'classic',
@@ -44,6 +52,7 @@ const config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
@@ -75,6 +84,10 @@ const config = {
             docId: 'intro',
             position: 'left',
             label: 'Tutorial',
+          },
+          {
+            type: 'localeDropdown',
+            position: 'right',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
